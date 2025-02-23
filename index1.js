@@ -8,6 +8,30 @@ let touchStartX = 0;
 let touchEndX = 0;
 let slideInterval;
 
+
+
+
+function handleTouchStart(e) {
+    touchStartX = e.touches[0].clientX;
+    pauseSlideShow();
+}
+
+function handleTouchMove(e) {
+    if (!touchStartX) return;
+    touchEndX = e.touches[0].clientX;
+}
+
+function handleTouchEnd() {
+    if (!touchStartX || !touchEndX) return;
+    const diff = touchStartX - touchEndX;
+    if (Math.abs(diff) > 50) {
+        diff > 0 ? nextSlide() : prevSlide();
+    }
+    touchStartX = touchEndX = 0;
+    startSlideShow();
+}
+
+
 function initializeSlider() {
     const dotsContainer = document.querySelector('.slider-dots');
     dotsContainer.innerHTML = '';

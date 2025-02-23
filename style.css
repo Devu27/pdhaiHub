@@ -6,7 +6,9 @@
     font-family: 'Segoe UI', sans-serif;
     -webkit-tap-highlight-color: transparent;
 }
-
+/* html{
+    overflow: hidden;
+} */
 :root {
     --primary-color: #ff9900;
     --secondary-color: #000000;
@@ -23,6 +25,12 @@ body {
     min-height: 100vh;
     margin: 0;
     overflow-x: hidden;
+}
+
+.container {
+    padding: 0em 5em 0em 5em;
+    max-width: 677px;
+    margin: 0 auto;
 }
 
 /* Header & Logo */
@@ -71,11 +79,6 @@ body {
     margin-bottom: 120px;
 } */
 
-.container {
-    padding: 0em 5em 0em 5em;
-    max-width: 677px;
-    margin: 0 auto;
-}
 
 /* PYQ Section Styles */
 .pyq-section {
@@ -417,7 +420,7 @@ a{
     position: relative;
     width: fit-content;
     margin-top: 50px;
-    z-index: 100;
+    z-index: 1000;
 }
 
 .no-results {
@@ -435,6 +438,15 @@ a{
 }
 
 @media (max-width: 768px) {
+
+    .class1 {
+        position: fixed;
+        width: fit-content;
+        margin-top: 50px;
+        z-index: 1000;
+    }
+    
+
     .search-bar {
         flex-direction: column;
         align-items: center;
@@ -468,47 +480,127 @@ a{
 }
 
 
-/* Mobile Responsive */
+/* Mobile-first approach */
 @media (max-width: 768px) {
-    .pdhai, .hub-box {
-        font-size: 2rem;
+    body {
+        font-size: 14px; /* Smaller font size for mobile */
     }
 
-    .pyq-section {
-        padding: 1.5rem;
+    .container {
+        padding: 0 1em; /* Reduce padding for smaller screens */
+        margin: 0 auto;
+        /* max-width: 100%; Allow container to take full width */
+    }
+   
+    .pdhai, .hub-box {
+        font-size: 2rem; /* Smaller logo text for mobile */
     }
 
     .section-title {
-        font-size: 1.5rem;
+        font-size: 1.5rem; /* Smaller section titles */
     }
 
-    .dock {
-        padding: 8px 15px;
-    }
+    
 
     .dock-item {
-        font-size: 95%;
-        margin: 0 7px;
-    } 
+        width: 50px; /* Smaller dock items */
+        height: 50px;
+        margin: 0 5px;
+    }
 
     .dock-item i {
-        font-size: 20px;
+        font-size: 20px; /* Smaller icons */
+    }
+
+    .footer {
+        font-size: 0.9rem; /* Smaller footer text */
     }
 }
 
-
-
-@media (max-width: 480px) {
-    .main-wrapper {
-        padding: 1rem 0.5rem;
+@media (max-width: 768px) {
+    .professor-cards-container {
+        grid-template-columns: 1fr; /* Single column for mobile */
+        gap: 1rem; /* Reduce gap between items */
     }
 
+    .tutorial-cards-container {
+        flex-direction: column; /* Stack tutorial cards vertically */
+        align-items: center;
+    }
+
+    .tutorial-card {
+        width: 100%; /* Full width for tutorial cards */
+        margin-bottom: 1rem;
+    }
+}
+
+@media (max-width: 768px) {
     .custom-select, .dock-style-btn {
-        padding: 0.8rem;
+        padding: 0.8rem; /* Smaller padding for form elements */
+        font-size: 1rem; /* Smaller font size */
     }
 
-    .dock-item {
-        font-size: 95%;
-        margin: 0 7px;
+    .search-bar {
+        flex-direction: column; /* Stack search bar elements vertically */
+        align-items: center;
+    }
+
+    .search-bar input {
+        width: 100%; /* Full width for input */
+        max-width: none; /* Remove max-width restriction */
+    }
+
+    .search-bar button {
+        width: 100%; /* Full width for button */
+        margin-top: 0.5rem; /* Add spacing between input and button */
+    }
+}
+
+@media (max-width: 768px) {
+    .slider-container {
+        height: 200px; /* Reduce slider height */
+    }
+
+    .slide img {
+        object-fit: contain; /* Ensure images fit within the slider */
+    }
+}
+
+@media (max-width: 768px) {
+    .professor-card-item {
+        padding: 1rem; /* Reduce padding */
+        min-width: 250px; /* Smaller card width */
+    }
+
+    .professor-card-item img {
+        width: 80px; /* Smaller image */
+        height: 80px;
+    }
+
+    .professor-card-item h4 {
+        font-size: 1.2rem; /* Smaller heading */
+    }
+
+    .professor-details p {
+        font-size: 0.9rem; /* Smaller text */
+    }
+}
+
+@media (max-width: 768px) {
+    .cgpa-calculator-section {
+        padding: 1rem; /* Reduce padding */
+    }
+
+    .cgpa-form {
+        padding: 1rem; /* Reduce form padding */
+    }
+
+    .credits-grid {
+        grid-template-columns: repeat(2, 1fr); /* Two columns for mobile */
+        gap: 0.5rem; /* Reduce gap */
+    }
+
+    .semester-input {
+        margin-bottom: 0.5rem; /* Add spacing between inputs */
     }
 }
