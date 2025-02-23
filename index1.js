@@ -661,7 +661,7 @@ function showProfessors() {
         <style>
             .professor-cards-container {
                 display: flex;
-                overflow-x: hidden;
+                overflow-x: auto;
                 scroll-behavior: smooth;
                 padding: 20px;
                 position: relative;
@@ -669,37 +669,32 @@ function showProfessors() {
             }
             
             .scroll-buttons {
-                position: absolute;
-                top: 50%;
-                left: 0;
-                right: 0;
-                transform: translateY(-50%);
-                display: flex;
-                justify-content: space-between;
-                pointer-events: none;
-                z-index: 2;
+                display: none;
             }
             
-            .scroll-btn {
-                background: rgba(0, 0, 0, 0.6);
-                border: none;
-                color: white;
-                padding: 15px;
-                cursor: pointer;
-                border-radius: 50%;
-                transition: background 0.3s;
-                pointer-events: auto;
-                opacity: 0;
-                transition: opacity 0.3s;
+         
+            .professor-cards-container::-webkit-scrollbar {
+                width: 12px; /* Width of the scrollbar */
+                height: 12px; /* Height for horizontal scrollbar */
+              
+            }  
+            .professor-cards-container::-webkit-scrollbar-track {
+                background: black; /* Track color */
+                border-radius: 10px; /* Rounded corners */
             }
-            
-            .scroll-btn:hover {
-                background: rgba(0, 0, 0, 0.8);
+            .professor-cards-container::-webkit-scrollbar-track:hover {
+                background-color : var(--primary-color); /* Thumb color on hover */
             }
-            
-            .professor-card:hover .scroll-btn {
-                opacity: 1;
+            .professor-cards-container::-webkit-scrollbar-thumb {
+                background: #888; /* Thumb color */
+                border-radius: 10px; /* Rounded corners */
+                border: 3px solid #f1f1f1; /* Padding around the thumb */
             }
+            .professor-cards-container::-webkit-scrollbar-thumb:hover {
+                background-color : var(--primary-color); /* Thumb color on hover */
+            }
+           
+                        
             
             .professor-card-item {
                 flex: 0 0 auto;
