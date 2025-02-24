@@ -440,9 +440,9 @@ a{
 @media (max-width: 768px) {
 
     .class1 {
-        position: fixed;
+        position: relative;
         width: fit-content;
-        margin-top: 50px;
+        margin-top: 65px;
         z-index: 1000;
     }
     
